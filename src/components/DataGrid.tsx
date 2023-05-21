@@ -30,8 +30,11 @@ class DataGrid extends React.Component<Iprop> {
       return {
         Id: station.station_id,
         Name: station.name,
-        "Available locks": 0,
-        "Available bikes": 0
+        Adress: station.address,
+        Available_docks: 0,
+        Available_bikes: 0,
+        Longitude: station.lon,
+        Latitude: station.lat
       };
     });
   }
@@ -48,14 +51,15 @@ class DataGrid extends React.Component<Iprop> {
       if (stationIndex === -1) {
         return;
       }
-      this.stationInformation[stationIndex]["Available locks"] = station.num_docks_available;
-      this.stationInformation[stationIndex]["Available bikes"] = station.num_bikes_available;
+      this.stationInformation[stationIndex]["Available_docks"] = station.num_docks_available;
+      this.stationInformation[stationIndex]["Available_bikes"] = station.num_bikes_available;
     });
     this.props.setData(this.stationInformation);
   }
 
   render() {
     const { data } = this.props;
+    console.log(data);
     return (
       <>
         <table>
@@ -70,7 +74,9 @@ class DataGrid extends React.Component<Iprop> {
           <tbody>
             {data.map((row, index) => (
               <tr key={index}>
-                {Object.keys(row).map((column, index) => (column !== "Id" ? <td key={index}>{row[column]}</td> : null))}
+                <td>{row["Name"]}</td>
+                <td>{row["Available_docks"]}</td>
+                <td>{row["Available_bikes"]}</td>
               </tr>
             ))}
           </tbody>
