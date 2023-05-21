@@ -5,8 +5,8 @@ interface Iprop {
   data: any[];
 }
 const containerStyle = {
-  width: "800px",
-  height: "800px"
+  width: "50vw",
+  height: "100vh"
 };
 
 const center = {

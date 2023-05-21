@@ -9,6 +9,7 @@ table {
   border-collapse: collapse;
   margin: 0 auto;
   border: 2px solid black;
+  height: 700px;
 }
 
 caption {
@@ -16,6 +17,7 @@ caption {
   font-weight: bold;
   padding: 0.5em;
   position: relative;
+  font-size: 3vw;
 }
 
 table thead th {
@@ -23,6 +25,7 @@ table thead th {
   top: 0;
   background-color: white;
   border: 2px solid black;
+  font-size: 1.5vw;
 }
 
 tbody tr:nth-child(odd) {
@@ -32,7 +35,7 @@ tbody tr:nth-child(odd) {
 tr td {
   padding: 0.4em;
   border-left: 1px solid black;
-  font-size: 1.2em;
+  font-size: 1.5vw;
 }
 
 tr th {
