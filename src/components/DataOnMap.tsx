@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
 
 const containerStyle = {
-  width: "400px",
-  height: "400px"
+  width: "800px",
+  height: "800px"
 };
 
 const center = {
-  lat: -3.745,
-  lng: -38.523
+  lat: 59.911491,
+  lng: 10.757933
 };
 
 class DataOnMap extends Component {
