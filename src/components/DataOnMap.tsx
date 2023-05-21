@@ -13,8 +13,9 @@ const center = {
 
 class DataOnMap extends Component {
   render() {
+    const APIkey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY!;
     return (
-      <LoadScript googleMapsApiKey="YOUR_API_KEY">
+      <LoadScript googleMapsApiKey={APIkey}>
         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
           {/* Child components, such as markers, info windows, etc. */}
           <></>
