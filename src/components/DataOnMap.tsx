@@ -10,18 +10,24 @@ const containerStyle = {
 };
 
 const center = {
-  lat: 59.911491,
+  lat: 59.921491,
   lng: 10.757933
 };
 
 class DataOnMap extends Component<Iprop> {
   render() {
     const APIkey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY!;
+    console.log("APIkey: " + APIkey);
     return (
-      <LoadScript googleMapsApiKey={APIkey}>
-        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
+      <LoadScript googleMapsApiKey="AIzaSyCFeYfdCqdO6cS-lTa3UyMp38lKZl-tmaQ">
+        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={13}>
           {this.props.data.map(station => (
-            <Marker position={{ lat: station.Latitude, lng: station.Longitude }} key={station.Id} onClick={() => {}} />
+            <Marker
+              position={{ lat: station.Latitude, lng: station.Longitude }}
+              key={station.Id}
+              title={station.Name}
+              onClick={() => {}}
+            />
           ))}
           {/* Child components, such as markers, info windows, etc. */}
           <></>

@@ -59,7 +59,6 @@ class DataGrid extends React.Component<Iprop> {
 
   render() {
     const { data } = this.props;
-    console.log(data);
     return (
       <>
         <table>
