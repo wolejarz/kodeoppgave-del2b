@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { GoogleMap, LoadScript } from "@react-google-maps/api";
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 interface Iprop {
   data: any[];
@@ -20,6 +20,9 @@ class DataOnMap extends Component<Iprop> {
     return (
       <LoadScript googleMapsApiKey={APIkey}>
         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
+          {this.props.data.map(station => (
+            <Marker position={{ lat: station.Latitude, lng: station.Longitude }} key={station.Id} onClick={() => {}} />
+          ))}
           {/* Child components, such as markers, info windows, etc. */}
           <></>
         </GoogleMap>
