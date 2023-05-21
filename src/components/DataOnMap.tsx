@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
 
+interface Iprop {
+  data: any[];
+}
 const containerStyle = {
   width: "800px",
   height: "800px"
@@ -11,7 +14,7 @@ const center = {
   lng: 10.757933
 };
 
-class DataOnMap extends Component {
+class DataOnMap extends Component<Iprop> {
   render() {
     const APIkey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY!;
     return (

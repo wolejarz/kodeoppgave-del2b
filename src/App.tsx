@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <header className="App-header"></header>
       <DataGrid data={data} setData={setData} />
-      <DataOnMap />
+      <DataOnMap data={data} />
     </div>
   );
 }
