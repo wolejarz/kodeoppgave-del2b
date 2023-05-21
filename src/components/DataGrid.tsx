@@ -2,10 +2,14 @@ import React from "react";
 import { STATION_INFORMATION_URL, STATION_STATUS_URL } from "../utilities/constants";
 import { fetchData } from "../utilities/DataFetching";
 
-class DataGrid extends React.Component {
-  state = {
-    data: new Array<any>()
-  };
+interface Iprop {
+  data: any[];
+  setData: (data: any[]) => void;
+}
+class DataGrid extends React.Component<Iprop> {
+  // state = {
+  //   data: new Array<any>()
+  // };
   stationInformation: any[] = [];
   stationInformationTTL: number = 10;
   columnNames: string[] = ["Navn", "Tilgjengelige låser", "Ledige sykler"];
@@ -47,11 +51,11 @@ class DataGrid extends React.Component {
       this.stationInformation[stationIndex]["Available locks"] = station.num_docks_available;
       this.stationInformation[stationIndex]["Available bikes"] = station.num_bikes_available;
     });
-    this.setState({ data: this.stationInformation });
+    this.props.setData(this.stationInformation);
   }
 
   render() {
-    const { data } = this.state;
+    const { data } = this.props;
     return (
       <>
         <table>
