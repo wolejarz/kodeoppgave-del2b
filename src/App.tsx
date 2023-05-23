@@ -20,7 +20,7 @@ function App() {
   const handleZoomToMarker = (stationId: number) => {
     const station = data.find(station => station.Id === stationId);
     if (station) {
-      map.setZoom(14);
+      map.setZoom(15);
       map.panTo({ lat: station.Latitude, lng: station.Longitude });
     }
   };
