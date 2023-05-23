@@ -25,7 +25,7 @@ class DataOnMap extends Component<Iprop> {
             height: "45vh"
           };
     const APIkey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY!;
-    const iconSize = window.innerWidth / 70;
+    const iconSize = (window.innerWidth + window.innerHeight) / 120;
     return (
       <LoadScript googleMapsApiKey={APIkey}>
         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={13}>
