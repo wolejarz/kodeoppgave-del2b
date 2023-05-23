@@ -44,11 +44,18 @@ class DataOnMap extends Component<Iprop> {
                 position={{ lat: station.Latitude, lng: station.Longitude }}
                 key={station.Id}
                 title={title}
-                onClick={() => {}}
+                label={{
+                  text: station.Available_bikes.toString(),
+                  color: "black",
+                  fontSize: "16px",
+                  fontWeight: "bold"
+                }}
                 icon={{
                   url: require("./../assets/location-marker.png"),
-                  fillColor: "#EB00FF",
-                  scaledSize: new window.google.maps.Size(iconSize, iconSize)
+                  fillOpacity: 0.5,
+                  fillColor: "red",
+                  scaledSize: new window.google.maps.Size(iconSize, iconSize),
+                  labelOrigin: new google.maps.Point(25, -10)
                 }}
               />
             );
