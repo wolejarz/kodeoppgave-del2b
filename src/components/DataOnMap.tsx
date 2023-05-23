@@ -5,6 +5,7 @@ import { displayDirection } from "../utilities/constants";
 interface Iprop {
   data: any[];
   currrentDisplayDirection: displayDirection;
+  setMap?: (map: any) => void;
 }
 
 const center = {
@@ -28,20 +29,30 @@ class DataOnMap extends Component<Iprop> {
     const iconSize = (window.innerWidth + window.innerHeight) / 120;
     return (
       <LoadScript googleMapsApiKey={APIkey}>
-        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={13}>
-          {this.props.data.map(station => (
-            <Marker
-              position={{ lat: station.Latitude, lng: station.Longitude }}
-              key={station.Id}
-              title={station.Name}
-              onClick={() => {}}
-              icon={{
-                url: require("./../assets/location-marker.png"),
-                fillColor: "#EB00FF",
-                scaledSize: new window.google.maps.Size(iconSize, iconSize)
-              }}
-            />
-          ))}
+        <GoogleMap
+          mapContainerStyle={containerStyle}
+          center={center}
+          zoom={13}
+          onLoad={map => {
+            this.props.setMap && this.props.setMap(map);
+          }}
+        >
+          {this.props.data.map(station => {
+            const title = `${station.Name}\n${station.Available_bikes} ledige sykler\n${station.Available_docks} ledige låser`;
+            return (
+              <Marker
+                position={{ lat: station.Latitude, lng: station.Longitude }}
+                key={station.Id}
+                title={title}
+                onClick={() => {}}
+                icon={{
+                  url: require("./../assets/location-marker.png"),
+                  fillColor: "#EB00FF",
+                  scaledSize: new window.google.maps.Size(iconSize, iconSize)
+                }}
+              />
+            );
+          })}
           <></>
         </GoogleMap>
       </LoadScript>

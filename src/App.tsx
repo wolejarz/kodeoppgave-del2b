@@ -10,14 +10,25 @@ function App() {
   const [currentDisplayDirection, setCurrentDisplayDirection] = useState<displayDirection>(
     getDisplayDirection(displayDirection.horizontal)
   );
-  const AppBodyClassName =
-    currentDisplayDirection === displayDirection.horizontal ? "App-body-horizontal" : "App-body-vertical";
+  const [map, setMap] = useState<any>(null);
+
   const handleResize = () => {
     const newDisplayDirection = getDisplayDirection(currentDisplayDirection);
-    console.log("resize", currentDisplayDirection, newDisplayDirection);
     setCurrentDisplayDirection(newDisplayDirection);
   };
+
+  const handleZoomToMarker = (stationId: number) => {
+    const station = data.find(station => station.Id === stationId);
+    if (station) {
+      map.setZoom(14);
+      map.panTo({ lat: station.Latitude, lng: station.Longitude });
+    }
+  };
+
   useEffect(() => () => window.addEventListener("resize", handleResize));
+
+  const AppBodyClassName =
+    currentDisplayDirection === displayDirection.horizontal ? "App-body-horizontal" : "App-body-vertical";
 
   return (
     <div className="App">
@@ -26,8 +37,13 @@ function App() {
         <h1>Oslo Bysykkel</h1>
       </header>
       <div className={AppBodyClassName}>
-        <DataGrid data={data} setData={setData} currrentDisplayDirection={currentDisplayDirection} />
-        <DataOnMap data={data} currrentDisplayDirection={currentDisplayDirection} />
+        <DataGrid
+          data={data}
+          setData={setData}
+          currrentDisplayDirection={currentDisplayDirection}
+          zoomToMarker={handleZoomToMarker}
+        />
+        <DataOnMap data={data} currrentDisplayDirection={currentDisplayDirection} setMap={setMap} />
       </div>
     </div>
   );

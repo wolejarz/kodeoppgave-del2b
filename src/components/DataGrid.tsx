@@ -6,6 +6,7 @@ interface Iprop {
   data: any[];
   setData: (data: any[]) => void;
   currrentDisplayDirection: displayDirection;
+  zoomToMarker?: (stationId: number) => void;
 }
 class DataGrid extends React.Component<Iprop> {
   stationInformation: any[] = [];
@@ -79,7 +80,7 @@ class DataGrid extends React.Component<Iprop> {
           </thead>
           <tbody>
             {data.map((row, index) => (
-              <tr key={index}>
+              <tr key={index} onClick={ev => this.props.zoomToMarker && this.props.zoomToMarker(row["Id"])}>
                 <td>{row["Name"]}</td>
                 <td>{row["Available_docks"]}</td>
                 <td>{row["Available_bikes"]}</td>
