@@ -1,15 +1,13 @@
 import React from "react";
-import { STATION_INFORMATION_URL, STATION_STATUS_URL } from "../utilities/constants";
+import { displayDirection, STATION_INFORMATION_URL, STATION_STATUS_URL } from "../utilities/constants";
 import { fetchData } from "../utilities/DataFetching";
 
 interface Iprop {
   data: any[];
   setData: (data: any[]) => void;
+  currrentDisplayDirection: displayDirection;
 }
 class DataGrid extends React.Component<Iprop> {
-  // state = {
-  //   data: new Array<any>()
-  // };
   stationInformation: any[] = [];
   stationInformationTTL: number = 10;
   columnNames: string[] = ["Navn", "Tilgjengelige låser", "Ledige sykler"];
@@ -59,10 +57,19 @@ class DataGrid extends React.Component<Iprop> {
 
   render() {
     const { data } = this.props;
+    const containerStyle =
+      this.props.currrentDisplayDirection === displayDirection.horizontal
+        ? {
+            width: "50vw",
+            height: "90vh"
+          }
+        : {
+            width: "100vw",
+            height: "45vh"
+          };
     return (
-      <>
+      <div style={containerStyle} className="data-grid">
         <table>
-          <caption>OSLOBYSYKKEL</caption>
           <thead>
             <tr>
               {this.columnNames.map((column, index) => (
@@ -80,7 +87,7 @@ class DataGrid extends React.Component<Iprop> {
             ))}
           </tbody>
         </table>
-      </>
+      </div>
     );
   }
 }

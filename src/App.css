@@ -1,8 +1,17 @@
 .App {
   text-align: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
+}
+
+.App-header { 
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-weight: bold;
+  padding: 0.5em;
+  font-size: 1.5vw;
 }
 
 .App-body-horizontal {
@@ -17,19 +26,17 @@
   justify-content: space-between;
 }
 
+.data-grid {
+  overflow: scroll;
+  border: black 1px solid;
+  margin: 3px;
+}
+
 table {
   border-collapse: collapse;
   margin: 0 auto;
   border: 2px solid black;
   height: 700px;
-}
-
-caption {
-  font-size: 2em;
-  font-weight: bold;
-  padding: 0.5em;
-  position: relative;
-  font-size: 3vw;
 }
 
 table thead th {

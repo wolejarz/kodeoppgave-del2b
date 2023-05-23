@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import { displayDirection } from "../utilities/constants";
 
 interface Iprop {
   data: any[];
+  currrentDisplayDirection: displayDirection;
 }
-const containerStyle = {
-  width: "50vw",
-  height: "100vh"
-};
 
 const center = {
   lat: 59.921491,
@@ -16,6 +14,16 @@ const center = {
 
 class DataOnMap extends Component<Iprop> {
   render() {
+    const containerStyle =
+      this.props.currrentDisplayDirection === displayDirection.horizontal
+        ? {
+            width: "50vw",
+            height: "90vh"
+          }
+        : {
+            width: "100vw",
+            height: "45vh"
+          };
     const APIkey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY!;
     const iconSize = window.innerWidth / 70;
     return (
