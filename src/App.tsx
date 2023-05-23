@@ -8,8 +8,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header"></header>
-      <DataGrid data={data} setData={setData} />
-      <DataOnMap data={data} />
+      <div className="App-body">
+        <DataGrid data={data} setData={setData} />
+        <DataOnMap data={data} />
+      </div>
     </div>
   );
 }

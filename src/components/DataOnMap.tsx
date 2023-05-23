@@ -17,6 +17,7 @@ const center = {
 class DataOnMap extends Component<Iprop> {
   render() {
     const APIkey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY!;
+    const iconSize = window.innerWidth / 70;
     return (
       <LoadScript googleMapsApiKey={APIkey}>
         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={13}>
@@ -26,9 +27,13 @@ class DataOnMap extends Component<Iprop> {
               key={station.Id}
               title={station.Name}
               onClick={() => {}}
+              icon={{
+                url: require("./../assets/location-marker.png"),
+                fillColor: "#EB00FF",
+                scaledSize: new window.google.maps.Size(iconSize, iconSize)
+              }}
             />
           ))}
-          {/* Child components, such as markers, info windows, etc. */}
           <></>
         </GoogleMap>
       </LoadScript>
