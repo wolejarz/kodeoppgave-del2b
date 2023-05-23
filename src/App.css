@@ -5,6 +5,18 @@
   justify-content: space-between;
 }
 
+.App-body-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.App-body-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 table {
   border-collapse: collapse;
   margin: 0 auto;
