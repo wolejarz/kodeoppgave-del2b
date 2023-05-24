@@ -1,4 +1,4 @@
-# Running kodeoppgave - Oslo Origo by Wojciech Olejarz
+# Running kodeoppgave - Oslo Origo by Wojciech Olejarz - stage 2B
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
