@@ -45,9 +45,9 @@ class DataOnMap extends Component<Iprop> {
                 key={station.Id}
                 title={title}
                 label={{
-                  text: station.Available_bikes.toString(),
+                  text: station.Available_docks.toString() + "/" + station.Available_bikes.toString(),
                   color: "black",
-                  fontSize: "16px",
+                  fontSize: "0.7vw",
                   fontWeight: "bold"
                 }}
                 icon={{
@@ -55,7 +55,7 @@ class DataOnMap extends Component<Iprop> {
                   fillOpacity: 0.5,
                   fillColor: "red",
                   scaledSize: new window.google.maps.Size(iconSize, iconSize),
-                  labelOrigin: new google.maps.Point(25, -10)
+                  labelOrigin: new google.maps.Point(12, 30)
                 }}
               />
             );
