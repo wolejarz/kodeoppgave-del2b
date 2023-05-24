@@ -27,7 +27,7 @@ class DataOnMap extends Component<Iprop> {
           };
     const APIkey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY!;
     const iconSize = (window.innerWidth + window.innerHeight) / 120;
-    return (
+    return this.props.data !== null ? (
       <LoadScript googleMapsApiKey={APIkey}>
         <GoogleMap
           mapContainerStyle={containerStyle}
@@ -63,6 +63,8 @@ class DataOnMap extends Component<Iprop> {
           <></>
         </GoogleMap>
       </LoadScript>
+    ) : (
+      <div>Loading ...</div>
     );
   }
 }
