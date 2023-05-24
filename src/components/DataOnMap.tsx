@@ -51,7 +51,7 @@ class DataOnMap extends Component<Iprop> {
                   fontWeight: "bold"
                 }}
                 icon={{
-                  url: require("./../assets/location-marker.png"),
+                  url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png",
                   fillOpacity: 0.5,
                   fillColor: "red",
                   scaledSize: new window.google.maps.Size(iconSize, iconSize),
